@@ -6,6 +6,50 @@ import { slideIn } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 import emailjs from "@emailjs/browser";
 
+// Custom Toast Notification Component
+const Toast = ({ message, type, onClose }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div 
+      className="fixed inset-0 pointer-events-none"
+      style={{ zIndex: 99999 }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        className={`absolute top-6 left-1/2 transform -translate-x-1/2 pointer-events-auto p-5 rounded-xl shadow-2xl border-2 max-w-lg w-auto min-w-[300px] ${
+          type === 'success' 
+            ? 'bg-green-500 border-green-400 text-white' 
+            : type === 'error'
+            ? 'bg-red-500 border-red-400 text-white'
+            : 'bg-yellow-500 border-yellow-400 text-white'
+        }`}
+        style={{ 
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)'
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <p className="text-lg font-semibold pr-4">{message}</p>
+          <button
+            onClick={onClose}
+            className="text-white hover:text-gray-200 text-xl font-bold ml-2 w-6 h-6 flex items-center justify-center"
+          >
+            ✕
+          </button>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 // template_a403fhr (Contact Us)
 // service_5hdfkum
 // AovRWq2kHzdnZRAIZ
@@ -18,12 +62,21 @@ const Contact = () => {
     message: "",
   });
   const [loading, setloading] = useState(false);
+  const [toast, setToast] = useState(null);
 
   // Initialize EmailJS
   useEffect(() => {
     emailjs.init("AovRWq2kHzdnZRAIZ");
     console.log("EmailJS initialized with public key: AovRWq2kHzdnZRAIZ");
   }, []);
+  const showToast = (message, type = 'info') => {
+    setToast({ message, type });
+  };
+
+  const hideToast = () => {
+    setToast(null);
+  };
+
   const handlechange = (e) => {
     const { name, value } = e.target;
     setform({ ...form, [name]: value });
@@ -33,15 +86,15 @@ const Contact = () => {
     
     // Form validation
     if (!form.name.trim()) {
-      alert("Please enter your name");
+      showToast("Please enter your name", "error");
       return;
     }
     if (!form.email.trim()) {
-      alert("Please enter your email");
+      showToast("Please enter your email", "error");
       return;
     }
     if (!form.message.trim()) {
-      alert("Please enter a message");
+      showToast("Please enter a message", "error");
       return;
     }
     
@@ -71,7 +124,7 @@ const Contact = () => {
         (response) => {
           setloading(false);
           console.log("Email sent successfully:", response);
-          alert("Thank you! I will get back to you as soon as possible.");
+          showToast("Thank you! I will get back to you as soon as possible.", "success");
           setform({
             name: "",
             email: "",
@@ -81,12 +134,20 @@ const Contact = () => {
         (error) => {
           setloading(false);
           console.error("EmailJS Error:", error);
-          alert(`Failed to send message. Error: ${error.text || error.message || "Unknown error"}`);
+          showToast("Failed to send message. Please try again later.", "error");
         }
       );
   };
   return (
-    <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
+    <>
+      {toast && (
+        <Toast 
+          message={toast.message} 
+          type={toast.type} 
+          onClose={hideToast} 
+        />
+      )}
+      <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
@@ -148,6 +209,7 @@ const Contact = () => {
         <EarthCanvas />
       </motion.div>
     </div>
+    </>
   );
 };
 
