@@ -18,9 +18,8 @@ const ExperienceCard = ({ experience }) => (
     icon={
       <div className="w-full h-full flex items-center justify-center">
         <img
-          src={`${experience.icon}${
-            experience.icon.includes("?") ? "&" : "?"
-          }tr=f-auto`}
+          src={`${experience.icon}${experience.icon.includes("?") ? "&" : "?"
+            }tr=f-auto`}
           alt={experience.company_name}
           loading="lazy"
           width="60%"
