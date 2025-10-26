@@ -4,6 +4,31 @@ import { styles } from "../styles";
 
 
 const Hero = () => {
+  const handleDownloadCV = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    console.log('Download button clicked!'); // Debug log
+    
+    try {
+      // Create download link
+      const link = document.createElement('a');
+      link.href = '/ManishPardhi_Resume.pdf';
+      link.download = 'Manish_Pardhi_CV.pdf';
+      link.style.display = 'none';
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      console.log('Download initiated'); // Debug log
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback: open in new tab
+      window.open('/ManishPardhi_Resume.pdf', '_blank');
+    }
+  };
+
   return (
     <section className="relative w-full   h-screen mx-auto">
       <div
@@ -21,16 +46,27 @@ const Hero = () => {
             I develop Mobile applications and <br className="sm:block hidden" />{" "}
             Machine learning models
           </p>
-          <div className="mt-8">
-            <a
-              href="/cv.pdf"
-              download=""
-              className="bg-[#915eff] hover:bg-[#7c3aed] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 inline-flex items-center gap-2"
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <button
+              type="button"
+              onClick={handleDownloadCV}
+              className="bg-[#915eff] hover:bg-[#7c3aed] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 inline-flex items-center gap-2 cursor-pointer z-10 relative"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Download CV
+            </button>
+            
+            <a
+              href="/ManishPardhi_Resume.pdf"
+              download="Manish_Pardhi_CV.pdf"
+              className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 inline-flex items-center gap-2 cursor-pointer z-10 relative"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+              </svg>
+              Direct Download
             </a>
           </div>
         </div>
