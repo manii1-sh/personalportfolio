@@ -23,6 +23,29 @@ export const navLinks = [
   },
 ];
 
+export const socialLinks = [
+  {
+    name: "GitHub",
+    url: "https://github.com/manii1-sh",
+    icon: "https://img.icons8.com/glyph-neue/96/FFFFFF/github.png",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/manish-pardhi-03522421a/",
+    icon: "https://img.icons8.com/color/96/linkedin.png",
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/__manissh?igsh=MWRnMHB3NWlibmN0eg==",
+    icon: "https://img.icons8.com/fluency/96/instagram-new.png",
+  },
+];
+
+export const contactInfo = {
+  phone: "+91 93225 20682",
+  email: "mansihpardhi1807@gmail.com",
+};
+
 const services = [
   {
     title: "Machine Learning Developer",
