@@ -67,13 +67,13 @@ const About = () => {
         
         <motion.div
           variants={fadeIn("left", "spring", 0.1, 0.75)}
-          className="flex-shrink-0"
+          className="flex-shrink-0 flex justify-center lg:justify-end lg:-mt-6"
         >
           <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-[#915eff] shadow-lg">
             <img
               src="/manish-photo.jpg"
               alt="Manish Pardhi"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         </motion.div>
