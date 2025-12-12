@@ -39,6 +39,11 @@ export const socialLinks = [
     url: "https://www.instagram.com/__manissh?igsh=MWRnMHB3NWlibmN0eg==",
     icon: "https://img.icons8.com/fluency/96/instagram-new.png",
   },
+  {
+    name: "WhatsApp",
+    url: "https://wa.me/919322520682?text=Hello! I found your portfolio and would like to connect.",
+    icon: "https://img.icons8.com/color/96/whatsapp.png",
+  },
 ];
 
 export const contactInfo = {
