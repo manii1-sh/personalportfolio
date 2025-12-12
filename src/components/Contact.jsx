@@ -19,13 +19,13 @@ const Toast = ({ message, type, onClose }) => {
   return (
     <div 
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 99999 }}
+      style={{ zIndex: 999999 }}
     >
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -100 }}
-        className={`absolute top-6 left-1/2 transform -translate-x-1/2 pointer-events-auto p-5 rounded-xl shadow-2xl border-2 max-w-lg w-auto min-w-[300px] ${
+        className={`absolute top-20 left-1/2 transform -translate-x-1/2 pointer-events-auto p-5 rounded-xl shadow-2xl border-2 max-w-lg w-auto min-w-[300px] ${
           type === 'success' 
             ? 'bg-green-500 border-green-400 text-white' 
             : type === 'error'

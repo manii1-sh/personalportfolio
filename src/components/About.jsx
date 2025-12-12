@@ -47,19 +47,37 @@ const About = () => {
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[14px] sm:text-[17px] max-w-3xl sm:leading-[30px] leading-1"
-      >
-        Hi, I'm Manish Pardhi — a Machine Learning and Flutter Developer with a solid foundation in Python, PostgreSQL, and Flutter. I'm passionate about building intelligent systems and cross-platform applications that solve real-world problems.
-      </motion.p>
+      
+      <div className="mt-4 flex flex-col lg:flex-row gap-8 items-start">
+        <div className="flex-1">
+          <motion.p
+            variants={fadeIn("", "", 0.1, 1)}
+            className="text-secondary text-[14px] sm:text-[17px] max-w-3xl sm:leading-[30px] leading-1"
+          >
+            Hi, I'm Manish Pardhi — a Machine Learning and Flutter Developer with a solid foundation in Python, PostgreSQL, and Flutter. I'm passionate about building intelligent systems and cross-platform applications that solve real-world problems.
+          </motion.p>
 
-      <motion.p
-        variants={fadeIn("", "", 0.2, 1)}
-        className="mt-4 text-secondary text-[14px] sm:text-[17px] max-w-3xl sm:leading-[30px] leading-1"
-      >
-        Currently, I'm doing an internship, working on impactful projects and strengthening my technical skills while exploring innovative technologies to deliver clean and efficient solutions.
-      </motion.p>
+          <motion.p
+            variants={fadeIn("", "", 0.2, 1)}
+            className="mt-4 text-secondary text-[14px] sm:text-[17px] max-w-3xl sm:leading-[30px] leading-1"
+          >
+            Currently, I'm doing an internship, working on impactful projects and strengthening my technical skills while exploring innovative technologies to deliver clean and efficient solutions.
+          </motion.p>
+        </div>
+        
+        <motion.div
+          variants={fadeIn("left", "spring", 0.1, 0.75)}
+          className="flex-shrink-0"
+        >
+          <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-[#915eff] shadow-lg">
+            <img
+              src="/manish-photo.jpg"
+              alt="Manish Pardhi"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+      </div>
       <div className="mt-20 flex flex-wrap justify-center gap-16 sm:gap-20">
         {services.map((service, index) => (
           <ServiceCard key={index} index={index} {...service} />

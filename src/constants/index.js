@@ -67,6 +67,10 @@ const technologies = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   },
   {
+    name: "MongoDB",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
     name: "Excel",
     icon: "https://img.icons8.com/color/96/microsoft-excel-2019.png",
   },
