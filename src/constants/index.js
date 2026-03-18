@@ -87,6 +87,22 @@ const technologies = [
     name: "Git",
     icon: git,
   },
+  {
+    name: "Supabase",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  },
+  {
+    name: "Swagger",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg",
+  },
+  {
+    name: "Jira",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
+  },
+  {
+    name: "Docker",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  },
 ];
 
 const experiences = [
@@ -95,7 +111,7 @@ const experiences = [
     company_name: "Aarkay Techno Consultants Pvt. Ltd.",
     icon: "https://img.icons8.com/color/96/artificial-intelligence.png",
     iconBg: "#E6DEDD",
-    date: "Jun 2025 - Present",
+    date: "Jun 2025 - Dec 2025",
     points: [
       "Working on Vision-based projects using Python and advanced machine learning algorithms.",
       "Developing AI-based solutions and implementing computer vision techniques for real-world applications.",
@@ -153,26 +169,26 @@ const projects = [
     live_website_link: "https://github.com/manii1-sh/voicepicking-and-warehouse-system-app",
   },
   {
-    name: "Steel Metal Bar Detection",
+    name: "Teamly — Free Team Collaboration Chat",
     description:
-      "An advanced computer vision system for detecting and analyzing steel metal bars using machine learning algorithms. Provides accurate measurements and quality assessment for industrial manufacturing processes.",
+      "A full-featured team collaboration platform inspired by WhatsApp and Microsoft Teams. Built with a completely free-tier stack — no paid services for storage, email, or infrastructure — making it accessible for teams of any size without any cost.",
     tags: [
       {
-        name: "python",
+        name: "real-time-chat",
         color: "blue-text-gradient",
       },
       {
-        name: "machine-learning",
+        name: "free-tier",
         color: "green-text-gradient",
       },
       {
-        name: "detection",
+        name: "collaboration",
         color: "pink-text-gradient",
       },
     ],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center",
-    source_code_link: "https://github.com/manii1-sh/steel-metal-bar-detetion",
-    live_website_link: "https://github.com/manii1-sh/steel-metal-bar-detetion",
+    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=400&h=300&fit=crop&crop=center",
+    source_code_link: "https://github.com/manii1-sh/teamlychatbox",
+    live_website_link: "https://github.com/manii1-sh/teamlychatbox",
   },
 ];
 
